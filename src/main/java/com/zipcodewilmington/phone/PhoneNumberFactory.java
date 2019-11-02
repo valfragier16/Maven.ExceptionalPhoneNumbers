@@ -39,7 +39,14 @@ public final class PhoneNumberFactory {
      * @return a new phone number object
      */ //TODO - if input is valid, return respective PhoneNumber object, else return null
     public static PhoneNumber createPhoneNumberSafely(int areaCode, int centralOfficeCode, int phoneLineCode) {
-        return createPhoneNumber(null);
+        // Concatenate parameters to create a string representation of the phone#
+        String phoneNumberString = "(" + areaCode + ")" + centralOfficeCode + "-" + phoneLineCode;
+        try{ // if valid return phoneNumber object
+            return createPhoneNumber(phoneNumberString);
+        } catch (InvalidPhoneNumberFormatException i ){
+            logger.log(Level.WARNING, phoneNumberString + " is not a valid phone number. ");
+            return null;
+        }
     }
 
     /**
