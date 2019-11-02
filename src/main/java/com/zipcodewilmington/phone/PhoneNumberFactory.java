@@ -48,8 +48,8 @@ public final class PhoneNumberFactory {
      * @throws InvalidPhoneNumberFormatException - thrown if phoneNumberString does not match acceptable format
      */ // TODO - Add throws statement to method signature
     public static PhoneNumber createPhoneNumber(String phoneNumberString) throws InvalidPhoneNumberFormatException {
-        logger.log(Level.INFO, String"");
+        logger.log(Level.INFO, "Attempting to create a new PhoneNumber object with a value of " + phoneNumberString);
 
-        return null;
+        return new PhoneNumber(phoneNumberString);
     }
 }
